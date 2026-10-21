@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Empresa | SOS Construir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="inner"><a href="index.html"><img src="assets/logo.svg" alt="SOS Construir"></a><a class="back" href="index.html">← Voltar</a></div></header>
+  <main>
+    <div class="card">
+      <div class="card-head">
+        <h1>Cadastro de Empresa</h1>
+        <p>Cadastro empresarial no SOS Construir</p>
+      </div>
+      <form novalidate>
+        <p class="req-note"><b>*</b> Indica uma pergunta obrigatória</p>
+        <div class="field">
+          <label for="razaoSocial">Razão Social <span class="req">*</span></label>
+          <span class="hint">Razão Social utilizada pela empresa</span>
+          <input id="razaoSocial" name="razaoSocial" data-validate="text" autocomplete="organization">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="nomeEmpresa">Nome da Empresa <span class="req">*</span></label>
+          <span class="hint">Nome utilizado pela empresa</span>
+          <input id="nomeEmpresa" name="nomeEmpresa" data-validate="text">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="cnpj">CNPJ <span class="req">*</span></label>
+          <span class="hint">Digite o CNPJ ou CPF da empresa</span>
+          <input id="cnpj" name="cnpj" data-validate="cpfcnpj" data-mask="cpfcnpj" inputmode="numeric" placeholder="00.000.000/0000-00">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="segmento">Segmento da Empresa <span class="req">*</span></label>
+          <span class="hint">Escreva em qual área se enfoca a empresa</span>
+          <input id="segmento" name="segmento" data-validate="text">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="cidade">Cidade <span class="req">*</span></label>
+          <span class="hint">Cidade onde reside a empresa</span>
+          <input id="cidade" name="cidade" data-validate="text" autocomplete="address-level2">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="logo">Logo da Empresa</label>
+          <span class="hint">Opcional. JPG, PNG ou WebP, até 5 MB</span>
+          <input id="logo" name="logo" type="file" accept="image/jpeg,image/png,image/webp" data-validate="image">
+          <div class="error"></div>
+        </div>
+        <p class="form-error" role="alert"></p>
+        <div class="actions">
+          <button type="submit" class="btn">Enviar</button>
+          <button type="button" class="btn-link" data-clear>Limpar formulário</button>
+        </div>
+      </form>
+      <div class="success">
+        <div class="check">✓</div>
+        <h2>Cadastro enviado!</h2>
+        <p>Recebemos os dados da sua empresa. Entraremos em contato em breve.</p>
+        <a class="btn" href="index.html">Voltar ao início</a>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">© SOS Construir</footer>
+  <script src="js/forms.js"></script>
+  <script>setupForm(document.querySelector("form"), "empresa");</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Prestador de Serviço | SOS Construir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="inner"><a href="index.html"><img src="assets/logo.svg" alt="SOS Construir"></a><a class="back" href="index.html">← Voltar</a></div></header>
+  <main>
+    <div class="card">
+      <div class="card-head">
+        <h1>Cadastro Prestador de Serviço</h1>
+        <p>Cadastro para prestadores de serviços no SOS Construir</p>
+      </div>
+      <form novalidate>
+        <p class="req-note"><b>*</b> Indica uma pergunta obrigatória</p>
+        <div class="field">
+          <label for="nome">Nome Completo <span class="req">*</span></label>
+          <input id="nome" name="nome" data-validate="text" autocomplete="name">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="nascimento">Data de Nascimento <span class="req">*</span></label>
+          <input id="nascimento" name="nascimento" type="date" data-validate="date" autocomplete="bday">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="documento">RG/CPF <span class="req">*</span></label>
+          <input id="documento" name="documento" data-validate="rgcpf">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="telefone">Telefone <span class="req">*</span></label>
+          <span class="hint">Telefone para contato</span>
+          <input id="telefone" name="telefone" type="tel" data-validate="phone" data-mask="phone" inputmode="tel" placeholder="(45) 99999-9999" autocomplete="tel">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="endereco">Endereço <span class="req">*</span></label>
+          <span class="hint">Digite o endereço da sua residência</span>
+          <input id="endereco" name="endereco" data-validate="text" autocomplete="street-address">
+          <div class="error"></div>
+        </div>
+        <div class="field">
+          <label for="foto">Foto</label>
+          <span class="hint">Opcional. JPG, PNG ou WebP, até 5 MB</span>
+          <input id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/webp" data-validate="image">
+          <div class="error"></div>
+        </div>
+        <p class="form-error" role="alert"></p>
+        <div class="actions">
+          <button type="submit" class="btn">Enviar</button>
+          <button type="button" class="btn-link" data-clear>Limpar formulário</button>
+        </div>
+      </form>
+      <div class="success">
+        <div class="check">✓</div>
+        <h2>Cadastro enviado!</h2>
+        <p>Recebemos seus dados. Entraremos em contato em breve.</p>
+        <a class="btn" href="index.html">Voltar ao início</a>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">© SOS Construir</footer>
+  <script src="js/forms.js"></script>
+  <script>setupForm(document.querySelector("form"), "prestador");</script>
+</body>
+</html>

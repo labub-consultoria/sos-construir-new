@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: sosconstruir
+      POSTGRES_PASSWORD: sosconstruir
+      POSTGRES_DB: sosconstruir
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sosconstruir"]
+      interval: 3s
+      retries: 20
+
+  s3:
+    image: adobe/s3mock:latest
+    user: root
+    environment:
+      COM_ADOBE_TESTING_S3MOCK_STORE_INITIAL_BUCKETS: sosconstruir-imagens
+      COM_ADOBE_TESTING_S3MOCK_STORE_RETAIN_FILES_ON_EXIT: "true"
+      COM_ADOBE_TESTING_S3MOCK_STORE_ROOT: /data
+    ports:
+      - "9090:9090"
+    volumes:
+      - s3data:/data
+
+volumes:
+  pgdata:
+  s3data:
